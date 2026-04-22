@@ -36,7 +36,6 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
     if (_chewieController == null) {
       return const Center(child: CircularProgressIndicator());
     }
-
     return Chewie(controller: _chewieController!);
   }
 }
