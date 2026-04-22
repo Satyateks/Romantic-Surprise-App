@@ -43,3 +43,52 @@ This app is crafted as a personalized experience to express emotions through **p
 ---
 
 ## 🧱 Project Structure
+
+lib/
+│
+├── main.dart
+├── app_routes.dart (optional)
+│
+├── screens/
+│ ├── welcome_screen.dart
+│ ├── gallery_screen.dart
+│ ├── cherished_moments_screen.dart
+│ ├── sent_with_love_screen.dart
+│ ├── for_you_my_love_screen.dart
+│ └── final_message_screen.dart
+│
+├── widgets/
+│ ├── love_bottom_nav.dart
+│ ├── journey_header.dart
+│
+└── utils/
+└── colors.dart
+
+
+
+
+##  📱 Navigation Flow
+
+Welcome Screen
+   ↓
+Gallery Screen
+   ↓
+Cherished Moments
+   ↓
+Sent with Love
+   ↓
+For You My Love
+   ↓
+Final Message
+
+
+
+🔮 Future Enhancements
+🎵 Background music integration
+🎬 Real video player support
+💖 Heart animations & Lottie effects
+🔐 Lock/Unlock surprise screen
+☁️ Firebase integration for dynamic content
+🧠 AI-generated personalized messages
+
+
