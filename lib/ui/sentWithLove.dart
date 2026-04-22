@@ -118,7 +118,7 @@ class SentWithLoveScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: const Text(
-                          "JULY 14, 2024",
+                          "March 25, 2025",
                           style: TextStyle(
                             fontSize: 11,
                             color: AppColors.deepText,

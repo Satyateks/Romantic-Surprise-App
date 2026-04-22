@@ -101,7 +101,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                             child: Icon(
                               Icons.favorite,
                               size: 54,
-                              color: Color(0xFFE8C6F3),
+                              color: Color(0xFFBA2C54),
                             ),
                           ),
                         ),

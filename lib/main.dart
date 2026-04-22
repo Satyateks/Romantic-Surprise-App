@@ -91,7 +91,7 @@ class AppColors {
 final player = AudioPlayer();
 
 void playMusic() async {
-  await player.setReleaseMode(ReleaseMode.loop);
+  await player.setReleaseMode(ReleaseMode.release);
   await player.play(AssetSource('audio/bg_music.mp3'));
 }
 
