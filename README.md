@@ -1,18 +1,45 @@
-# crush
+# 💖 Romantic Surprise App (Flutter)
 
-A new Flutter project.
+A beautifully designed **romantic memory & surprise mobile app** built with Flutter.  
+This app is crafted as a personalized experience to express emotions through **photos, videos, messages, and interactive UI**.
 
-## Getting Started
+> “Not just an app, but a digital memory journey.”
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## ✨ Features
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- 🎁 **Surprise Opening Screen**
+  - Elegant welcome screen with emotional message
+  - Smooth UI with soft gradient background
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# Romantic-Surprise-App
+- 📸 **Memories Gallery**
+  - Staggered image layout
+  - Beautiful rounded cards and overlays
+
+- 🎬 **Video Moments**
+  - Video preview cards with play UI
+  - Cinematic-style memory display
+
+- 💌 **Sent with Love**
+  - Personalized quotes and messages
+  - Voice note style UI section
+  - Memory highlights
+
+- 💖 **For You, My Love**
+  - Featured memories
+  - Romantic quote cards
+  - Secret surprise reveal section
+
+- 🌸 **Final Message Screen**
+  - Emotional ending message
+  - Replay memories option
+  - Clean and minimal design
+
+- 🧭 **Bottom Navigation**
+  - Smooth navigation between screens
+  - Soft highlighted selection UI
+
+---
+
+## 🧱 Project Structure
