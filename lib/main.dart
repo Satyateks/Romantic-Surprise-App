@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:crush/ui/gallery.dart';
 import 'package:flutter/material.dart';
 
@@ -56,6 +57,17 @@ class AppColors {
   static const Color muted = Color(0xFFECE1E5);
   static const Color darkButton = Color(0xFF8A6278);
 }
+
+
+
+
+final player = AudioPlayer();
+
+void playMusic() async {
+  await player.setReleaseMode(ReleaseMode.loop);
+  await player.play(AssetSource('audio/bg_music.mp3'));
+}
+
 
 /// -------------------------
 /// SCREEN 1
