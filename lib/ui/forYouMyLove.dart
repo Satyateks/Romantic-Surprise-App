@@ -44,7 +44,7 @@ class ForYouMyLoveScreen extends StatelessWidget {
                 end: Alignment.bottomCenter,
                 colors: [
                   Colors.transparent,
-                  Colors.black.withOpacity(0.36),
+                  Colors.black.withValues(alpha: 0.36),
                 ],
               ),
             ),
@@ -53,7 +53,7 @@ class ForYouMyLoveScreen extends StatelessWidget {
             child: Center(
               child: CircleAvatar(
                 radius: 24,
-                backgroundColor: Colors.white.withOpacity(0.55),
+                backgroundColor: Colors.white.withValues(alpha: 0.55),
                 child: const Icon(
                   Icons.play_arrow_rounded,
                   size: 34,
@@ -109,7 +109,7 @@ class ForYouMyLoveScreen extends StatelessWidget {
                       top: 16,
                       child: CircleAvatar(
                         radius: 22,
-                        backgroundColor: Colors.white.withOpacity(0.35),
+                        backgroundColor: Colors.white.withValues(alpha: 0.35),
                         child: const Icon(
                           Icons.brush_rounded,
                           color: AppColors.accent,
@@ -334,7 +334,7 @@ class ForYouMyLoveScreen extends StatelessWidget {
                       width: 210,
                       height: 46,
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.92),
+                        color: Colors.white.withValues(alpha: 0.92),
                         borderRadius: BorderRadius.circular(24),
                         boxShadow: const [
                           BoxShadow(

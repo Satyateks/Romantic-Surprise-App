@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import '../main.dart';
-import 'gallery.dart';
-import 'wlcm.dart';
-
+import '../screens/video_player_screen.dart';
+import '../widgets/fade_in_widget.dart';
 
 class CherishedMomentsScreen extends StatefulWidget {
   const CherishedMomentsScreen({super.key});
@@ -23,120 +22,149 @@ class _CherishedMomentsScreenState extends State<CherishedMomentsScreen> {
     bool large = false,
     bool showPlay = true,
     String? badge,
+    String? videoPath,
   }) {
-    return Container(
-      height: height,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(28),
-        boxShadow: const [
-          BoxShadow(
-            color: Color(0x16000000),
-            blurRadius: 14,
-            offset: Offset(0, 8),
-          ),
-        ],
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(28),
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            Image.asset(
-              path,
-              fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) => Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color(0xFFFC8E6C),
-                      Color(0xFFB15D7E),
-                    ],
-                  ),
-                ),
+    return GestureDetector(
+      onTap: () {
+        if (videoPath != null) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => VideoPlayerScreen(
+                videoPath: videoPath,
+                title: title,
+                isAsset: true,
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.transparent,
-                    Colors.black.withOpacity(0.48),
-                  ],
-                ),
-              ),
+          );
+        }
+      },
+      child: Container(
+        height: height,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(28),
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0x16000000),
+              blurRadius: 14,
+              offset: Offset(0, 8),
             ),
-            if (badge != null)
-              Positioned(
-                top: 14,
-                right: 14,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.22),
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                  child: Text(
-                    badge,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 11,
-                      fontWeight: FontWeight.w600,
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(28),
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              Image.asset(
+                path,
+                fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0xFFFC8E6C),
+                        Color(0xFFB15D7E),
+                      ],
                     ),
                   ),
                 ),
               ),
-            if (showPlay)
-              const Center(
-                child: CircleAvatar(
-                  radius: 28,
-                  backgroundColor: Color(0xAAFFF1D8),
-                  child: Icon(
-                    Icons.play_arrow_rounded,
-                    size: 34,
-                    color: Colors.white,
+              Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.transparent,
+                      Colors.black.withValues(alpha: 0.48),
+                    ],
                   ),
                 ),
               ),
-            if (subtitle != null)
+              if (badge != null)
+                Positioned(
+                  top: 14,
+                  right: 14,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.22),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    child: Text(
+                      badge,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 11,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
+              if (showPlay)
+                Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: const Color(0xAAFFF1D8),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.3),
+                          blurRadius: 10,
+                          spreadRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: Icon(
+                        Icons.play_arrow_rounded,
+                        size: 34,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              if (subtitle != null)
+                Positioned(
+                  left: 18,
+                  bottom: large ? 52 : 40,
+                  child: Text(
+                    subtitle,
+                    style: const TextStyle(
+                      color: Colors.white70,
+                      fontSize: 12,
+                      letterSpacing: 1.5,
+                    ),
+                  ),
+                ),
               Positioned(
                 left: 18,
-                bottom: large ? 52 : 40,
+                bottom: 16,
                 child: Text(
-                  subtitle,
-                  style: const TextStyle(
-                    color: Colors.white70,
-                    fontSize: 12,
-                    letterSpacing: 1.5,
+                  title,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: large ? 22 : 18,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
-            Positioned(
-              left: 18,
-              bottom: 16,
-              child: Text(
-                title,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: large ? 22 : 18,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-            if (duration != null)
-              Positioned(
-                right: 18,
-                bottom: 18,
-                child: Text(
-                  duration,
-                  style: const TextStyle(
-                    color: Colors.white70,
-                    fontSize: 13,
+              if (duration != null)
+                Positioned(
+                  right: 18,
+                  bottom: 18,
+                  child: Text(
+                    duration,
+                    style: const TextStyle(
+                      color: Colors.white70,
+                      fontSize: 13,
+                    ),
                   ),
                 ),
-              ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -151,7 +179,7 @@ class _CherishedMomentsScreenState extends State<CherishedMomentsScreen> {
       margin: const EdgeInsets.only(bottom: 14),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.76),
+        color: Colors.white.withValues(alpha: 0.76),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
@@ -202,13 +230,6 @@ class _CherishedMomentsScreenState extends State<CherishedMomentsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final pages = [
-      const WelcomeScreen(),
-      const GalleryScreen(),
-      const CherishedMomentsScreen(),
-      const SizedBox(),
-    ];
-
     return Scaffold(
       backgroundColor: const Color(0xFFF8F5F5),
       body: SafeArea(
@@ -236,146 +257,171 @@ class _CherishedMomentsScreenState extends State<CherishedMomentsScreen> {
                 ],
               ),
               const SizedBox(height: 30),
-              const Center(
-                child: Text(
-                  "DIGITAL CONCIERGE",
-                  style: TextStyle(
-                    fontSize: 14,
-                    letterSpacing: 3,
-                    color: AppColors.textSoft,
-                    fontWeight: FontWeight.w600,
+              const FadeInWidget(
+                child: Center(
+                  child: Text(
+                    "DIGITAL CONCIERGE",
+                    style: TextStyle(
+                      fontSize: 14,
+                      letterSpacing: 3,
+                      color: AppColors.textSoft,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ),
               const SizedBox(height: 12),
-              const Center(
-                child: Text(
-                  "Cherished\nMoments",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 34,
-                    height: 1.05,
-                    color: AppColors.textDark,
-                    fontWeight: FontWeight.w600,
+              const FadeInWidget(
+                delay: Duration(milliseconds: 200),
+                child: Center(
+                  child: Text(
+                    "Cherished\nMoments",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 34,
+                      height: 1.05,
+                      color: AppColors.textDark,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ),
               const SizedBox(height: 14),
-              const Center(
-                child: Text(
-                  "Every heartbeat captured in a frame. Replay\nthe magic of us.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: AppColors.textSoft,
-                    fontStyle: FontStyle.italic,
-                    height: 1.4,
+              const FadeInWidget(
+                delay: Duration(milliseconds: 400),
+                child: Center(
+                  child: Text(
+                    "Every heartbeat captured in a frame. Replay\nthe magic of us.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: AppColors.textSoft,
+                      fontStyle: FontStyle.italic,
+                      height: 1.4,
+                    ),
                   ),
                 ),
               ),
               const SizedBox(height: 26),
 
-              _videoCard(
-                title: "Our First Sunset",
-                path: "assets/images/video1.jpg",
-                height: 220,
-                subtitle: "THE BEGINNING",
-                duration: "04:22",
-                large: true,
+              FadeInWidget(
+                delay: const Duration(milliseconds: 600),
+                child: _videoCard(
+                  title: "Our First Sunset",
+                  path: "assets/images/img1.jpeg",
+                  height: 220,
+                  subtitle: "THE BEGINNING",
+                  duration: "04:22",
+                  large: true,
+                  videoPath: "assets/videos/video1.mp4",
+                ),
               ),
 
               const SizedBox(height: 18),
 
-              Row(
-                children: [
-                  Expanded(
-                    child: _videoCard(
-                      title: "Quiet Mornings",
-                      path: "assets/images/video2.jpg",
-                      height: 140,
+              FadeInWidget(
+                delay: const Duration(milliseconds: 800),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: _videoCard(
+                        title: "Quiet Mornings",
+                        path: "assets/images/img2.jpeg",
+                        height: 140,
+                        videoPath: "assets/videos/video2.mp4",
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 14),
-                  Expanded(
-                    child: _videoCard(
-                      title: "Sparkling Night",
-                      path: "assets/images/video3.jpg",
-                      height: 140,
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: _videoCard(
+                        title: "Sparkling Night",
+                        path: "assets/images/img3.jpeg",
+                        height: 140,
+                        videoPath: "assets/videos/video5.mp4",
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
 
               const SizedBox(height: 18),
 
-              _videoCard(
-                title: "Paris in the Rain",
-                path: "assets/images/video4.jpg",
-                height: 220,
-                subtitle: "TRAVEL DIARY",
-                badge: "CINEMA EDIT",
-                large: true,
+              FadeInWidget(
+                delay: const Duration(milliseconds: 1000),
+                child: _videoCard(
+                  title: "Paris in the Rain",
+                  path: "assets/images/img5.jpeg",
+                  height: 220,
+                  subtitle: "TRAVEL DIARY",
+                  badge: "CINEMA EDIT",
+                  large: true,
+                  videoPath: "assets/videos/video4.mp4",
+                ),
               ),
 
               const SizedBox(height: 30),
 
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 28),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.62),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Column(
-                  children: [
-                    const Icon(Icons.star, color: Color(0xFFF39FC6), size: 36),
-                    const SizedBox(height: 18),
-                    const Text(
-                      "A Secret Message",
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: AppColors.textDark,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      "Someone left a video surprise for\nyou to unlock.",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: AppColors.textSoft,
-                        fontStyle: FontStyle.italic,
-                        height: 1.4,
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    GestureDetector(onTap: () =>  Navigator.pushNamed(context, '/sent-love'),
-                      child: Container(
-                        width: 230,
-                        height: 54,
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [
-                              Color(0xFFF5C3D7),
-                              Color(0xFFD9D4F5),
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(30),
+              FadeInWidget(
+                delay: const Duration(milliseconds: 1200),
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 28),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.62),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Column(
+                    children: [
+                      const Icon(Icons.star, color: Color(0xFFF39FC6), size: 36),
+                      const SizedBox(height: 18),
+                      const Text(
+                        "A Secret Message",
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: AppColors.textDark,
+                          fontWeight: FontWeight.w500,
                         ),
-                        child: const Center(
-                          child: Text(
-                            "REVEAL SURPRISE",
-                            style: TextStyle(
-                              color: AppColors.textDark,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
+                      ),
+                      const SizedBox(height: 10),
+                      const Text(
+                        "Someone left a video surprise for\nyou to unlock.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: AppColors.textSoft,
+                          fontStyle: FontStyle.italic,
+                          height: 1.4,
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                      GestureDetector(
+                        onTap: () => Navigator.pushNamed(context, '/sent-love'),
+                        child: Container(
+                          width: 230,
+                          height: 54,
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                              colors: [
+                                Color(0xFFF5C3D7),
+                                Color(0xFFD9D4F5),
+                              ],
+                            ),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "REVEAL SURPRISE",
+                              style: TextStyle(
+                                color: AppColors.textDark,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
 
@@ -394,12 +440,12 @@ class _CherishedMomentsScreenState extends State<CherishedMomentsScreen> {
               _recentTile(
                 title: "Beachside Laughs",
                 subtitle: "Added 2 days ago • 1:12",
-                path: "assets/images/recent1.jpg",
+                path: "assets/images/img4.jpeg",
               ),
               _recentTile(
                 title: "Anniversary Dinner",
                 subtitle: "Added 1 week ago • 3:45",
-                path: "assets/images/recent2.jpg",
+                path: "assets/images/img1.jpeg",
               ),
 
               const SizedBox(height: 28),
@@ -411,7 +457,7 @@ class _CherishedMomentsScreenState extends State<CherishedMomentsScreen> {
         margin: const EdgeInsets.fromLTRB(14, 0, 14, 14),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.82),
+          color: Colors.white.withValues(alpha: 0.82),
           borderRadius: BorderRadius.circular(28),
           boxShadow: const [
             BoxShadow(

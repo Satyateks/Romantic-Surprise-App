@@ -9,22 +9,49 @@ import 'ui/sentWithLove.dart';
 import 'ui/wlcm.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const RomanticSurpriseApp());
 }
 
-class RomanticSurpriseApp extends StatelessWidget {
+class RomanticSurpriseApp extends StatefulWidget {
   const RomanticSurpriseApp({super.key});
+
+  @override
+  State<RomanticSurpriseApp> createState() => _RomanticSurpriseAppState();
+}
+
+class _RomanticSurpriseAppState extends State<RomanticSurpriseApp> {
+  @override
+  void initState() {
+    super.initState();
+    _initBackgroundMusic();
+  }
+
+  Future<void> _initBackgroundMusic() async {
+    try {
+      await player.setReleaseMode(ReleaseMode.loop);
+      await player.setVolume(0.3);
+    } catch (e) {
+      debugPrint('Error initializing music: $e');
+    }
+  }
+
+  @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Romantic Surprise',
-      theme: ThemeData( useMaterial3: true,
+      theme: ThemeData(
+        useMaterial3: true,
         scaffoldBackgroundColor: const Color(0xFFF8F3F4),
         fontFamily: 'Serif',
       ),
-      // home: const WelcomeScreen(),
       initialRoute: '/',
       routes: {
         '/': (context) => const WelcomeScreen(),

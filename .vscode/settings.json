@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "/Users/mac/Desktop/crush/linux"
+    "cmake.sourceDirectory": "/Users/mac/Desktop/crush/linux",
+    "kiroAgent.configureMCP": "Disabled"
 }

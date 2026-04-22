@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../main.dart';
-import 'cherishedMoments.dart';
 
 class GalleryScreen extends StatelessWidget {
   const GalleryScreen({super.key});
@@ -52,7 +51,7 @@ class GalleryScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(12),
                   child: CircleAvatar(
                     radius: 14,
-                    backgroundColor: Colors.white.withOpacity(0.88),
+                    backgroundColor: Colors.white.withValues(alpha: 0.88),
                     child: Icon(
                       overlayIcon,
                       size: 16,
@@ -133,7 +132,7 @@ class GalleryScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: imageCard(
-                            "assets/images/img1.jpg",
+                            "assets/images/img1.jpeg",
                             height: 360,
                             overlayIcon: Icons.menu_book_outlined,
                             iconAlignment: Alignment.bottomLeft,
@@ -145,13 +144,13 @@ class GalleryScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               imageCard(
-                                "assets/images/img2.jpg",
+                                "assets/images/img2.jpeg",
                                 height: 170,
                                 borderRadius: BorderRadius.circular(28),
                               ),
                               const SizedBox(height: 14),
                               imageCard(
-                                "assets/images/img3.jpg",
+                                "assets/images/img3.jpeg",
                                 height: 176,
                                 borderRadius: BorderRadius.circular(28),
                               ),
@@ -171,7 +170,7 @@ class GalleryScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               imageCard(
-                                "assets/images/img4.jpg",
+                                "assets/images/img4.jpeg",
                                 height: 140,
                                 borderRadius: BorderRadius.circular(24),
                               ),
@@ -208,7 +207,7 @@ class GalleryScreen extends StatelessWidget {
                                         ],
                                       ),
                                       child: Image.asset(
-                                        "assets/images/img5.jpg",
+                                        "assets/images/img5.jpeg",
                                         fit: BoxFit.cover,
                                         errorBuilder: (_, __, ___) => Container(
                                           color: const Color(0xFFE8E2D7),
@@ -224,7 +223,7 @@ class GalleryScreen extends StatelessWidget {
                         const SizedBox(width: 14),
                         Expanded(
                           child: imageCard(
-                            "assets/images/img6.jpg",
+                            "assets/images/img3.jpeg",
                             height: 310,
                             overlayIcon: Icons.favorite,
                             iconAlignment: Alignment.topRight,
@@ -236,7 +235,7 @@ class GalleryScreen extends StatelessWidget {
 
                     const SizedBox(height: 18),
                     imageCard(
-                      "assets/images/img7.jpg",
+                      "assets/images/img2.jpeg",
                       height: 160,
                       borderRadius: BorderRadius.circular(32),
                     ),

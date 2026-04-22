@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../main.dart';
 import 'journeyHeader.dart';
 import 'loveBottomNav.dart';
+import '../widgets/fade_in_widget.dart';
+import '../widgets/audio_player_widget.dart';
 
 class SentWithLoveScreen extends StatelessWidget {
   const SentWithLoveScreen({super.key});
@@ -18,104 +20,115 @@ class SentWithLoveScreen extends StatelessWidget {
             children: [
               const JourneyHeader(),
               const SizedBox(height: 30),
-              const Text(
-                "PRIVATE MOMENTS",
-                style: TextStyle(
-                  fontSize: 11,
-                  letterSpacing: 2.5,
-                  color: AppColors.deepText,
+              const FadeInWidget(
+                child: Text(
+                  "PRIVATE MOMENTS",
+                  style: TextStyle(
+                    fontSize: 11,
+                    letterSpacing: 2.5,
+                    color: AppColors.deepText,
+                  ),
                 ),
               ),
               const SizedBox(height: 12),
-              const Text(
-                "Sent with Love",
-                style: TextStyle(
-                  fontSize: 28,
-                  color: Color(0xFF2F252A),
-                  fontWeight: FontWeight.w500,
+              const FadeInWidget(
+                delay: Duration(milliseconds: 200),
+                child: Text(
+                  "Sent with Love",
+                  style: TextStyle(
+                    fontSize: 28,
+                    color: Color(0xFF2F252A),
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
               const SizedBox(height: 8),
-              const Text(
-                "✧  ༄RK ༄  ✧RK✧  ༄RK",
-                style: TextStyle(
-                  color: AppColors.accent,
-                  fontSize: 12,
-                  letterSpacing: 1.2,
+              const FadeInWidget(
+                delay: Duration(milliseconds: 400),
+                child: Text(
+                  "✧  ༄RK ༄  ✧RK✧  ༄RK",
+                  style: TextStyle(
+                    color: AppColors.accent,
+                    fontSize: 12,
+                    letterSpacing: 1.2,
+                  ),
                 ),
               ),
               const SizedBox(height: 24),
 
               /// Main quote card
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 28),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.55),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Column(
-                  children: [
-                    CircleAvatar(
-                      radius: 28,
-                      backgroundColor: Colors.white,
-                      child: ClipOval(
-                        child: Image.network(
-                          "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400",
-                          width: 56,
-                          height: 56,
-                          fit: BoxFit.cover,
+              FadeInWidget(
+                delay: const Duration(milliseconds: 600),
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 28),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.55),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 28,
+                        backgroundColor: Colors.white,
+                        child: ClipOval(
+                          child: Image.network(
+                            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400",
+                            width: 56,
+                            height: 56,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 18),
-                    const Text(
-                      "❞",
-                      style: TextStyle(
-                        fontSize: 28,
-                        color: AppColors.softPink2,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    const Text(
-                      "\"Your laughter is\nthe melody that\nmakes my every\nday feel like a\nbeautiful dream.\"",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        height: 1.45,
-                        fontSize: 22,
-                        color: AppColors.deepText,
-                        fontWeight: FontWeight.w600,
-                        fontStyle: FontStyle.italic,
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Icon(
-                        Icons.favorite,
-                        color: AppColors.softPink,
-                        size: 14,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF7E9EE),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: const Text(
-                        "JULY 14, 2024",
+                      const SizedBox(height: 18),
+                      const Text(
+                        "❞",
                         style: TextStyle(
-                          fontSize: 11,
+                          fontSize: 28,
+                          color: AppColors.softPink2,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      const Text(
+                        "\"Your laughter is\nthe melody that\nmakes my every\nday feel like a\nbeautiful dream.\"",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          height: 1.45,
+                          fontSize: 22,
                           color: AppColors.deepText,
                           fontWeight: FontWeight.w600,
-                          letterSpacing: 1,
+                          fontStyle: FontStyle.italic,
                         ),
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 24),
+                      const Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Icon(
+                          Icons.favorite,
+                          color: AppColors.softPink,
+                          size: 14,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFF7E9EE),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Text(
+                          "JULY 14, 2024",
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: AppColors.deepText,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
 
@@ -207,70 +220,44 @@ class SentWithLoveScreen extends StatelessWidget {
               const SizedBox(height: 18),
 
               /// Voice note card
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 22),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.72),
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      "VOICE NOTE",
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: AppColors.lightText,
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: 1.5,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      "The sound of your voice\nis home.",
-                      style: TextStyle(
-                        fontSize: 19,
-                        color: AppColors.deepText,
-                        fontWeight: FontWeight.w700,
-                        height: 1.3,
-                      ),
-                    ),
-                    const SizedBox(height: 18),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Stack(
-                            children: [
-                              Container(
-                                height: 4,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFF0D9E3),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              Container(
-                                height: 4,
-                                width: 48,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFF19ABB),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                            ],
-                          ),
+              FadeInWidget(
+                delay: const Duration(milliseconds: 800),
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 22),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.72),
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "VOICE NOTE",
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: AppColors.lightText,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 1.5,
                         ),
-                        const SizedBox(width: 10),
-                        const Text(
-                          "0:12",
-                          style: TextStyle(
-                            color: AppColors.lightText,
-                            fontSize: 11,
-                          ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        "The sound of your voice\nis home.",
+                        style: TextStyle(
+                          fontSize: 19,
+                          color: AppColors.deepText,
+                          fontWeight: FontWeight.w700,
+                          height: 1.3,
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      SizedBox(height: 18),
+                      AudioPlayerWidget(
+                        audioPath: 'audio/bg_music.mp3',
+                        isAsset: true,
+                      ),
+                    ],
+                  ),
                 ),
               ),
 

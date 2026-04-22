@@ -59,7 +59,7 @@ class FinalMessageScreen extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 28),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.58),
+                  color: Colors.white.withValues(alpha: 0.58),
                   borderRadius: BorderRadius.circular(28),
                 ),
                 child: Column(
