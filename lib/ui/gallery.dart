@@ -170,7 +170,7 @@ class GalleryScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               imageCard(
-                                "assets/images/img4.jpeg",
+                                "assets/images/img8.jpeg",
                                 height: 140,
                                 borderRadius: BorderRadius.circular(24),
                               ),
@@ -223,7 +223,7 @@ class GalleryScreen extends StatelessWidget {
                         const SizedBox(width: 14),
                         Expanded(
                           child: imageCard(
-                            "assets/images/img3.jpeg",
+                            "assets/images/img6.jpeg",
                             height: 310,
                             overlayIcon: Icons.favorite,
                             iconAlignment: Alignment.topRight,

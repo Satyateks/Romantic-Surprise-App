@@ -27,7 +27,8 @@ migrate_working_dir/
 
 # Flutter assets (IGNORE EVERYTHING INSIDE)
 assets/
-
+/assets
+/assets/
 
 # Flutter/Dart/Pub related
 **/doc/api/

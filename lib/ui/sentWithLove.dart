@@ -138,15 +138,12 @@ class SentWithLoveScreen extends StatelessWidget {
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.72),
-                  borderRadius: BorderRadius.circular(26),
-                ),
+                decoration: BoxDecoration(color: Colors.white.withOpacity(0.72), borderRadius: BorderRadius.circular(26)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
                     Text(
-                      "🫶🏻",
+                      "🫶🏻 🫶🏽",
                       style: TextStyle(fontSize: 16),
                     ),
                     SizedBox(height: 12),
